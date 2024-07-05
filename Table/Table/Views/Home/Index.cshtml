@@ -1,0 +1,33 @@
+﻿@model Table.Models.Home
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <h1 style="text-align: center, ">Display Data</h1>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>City</th>
+            </tr>
+            @foreach (var item in ViewBag.model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.City</td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
