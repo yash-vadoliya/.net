@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+@{ var list = new List<About>
+{
+        new About { con = "India"},
+        new About { con = "USA"},
+        new About { con = "UAE"},
+        new About { con = "Russia"}
+    }; }
+
+@{
+    @foreach (var item in Model.Items)
+    {
+        <li>@item</li>
+     }
+}
+
+<ul>
+    @Html.RenderList(Model.Items)
+
+</ul>
+
+
+<p>Use this area to provide additional information.</p>

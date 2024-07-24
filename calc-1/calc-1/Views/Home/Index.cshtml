@@ -1,0 +1,40 @@
+﻿@model calc_1.Models.Home 
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        div {
+            margin: 100px;
+
+        }
+        input {
+            margin: 10px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form action="../" method="POST">
+            <input type="text" id="no1" placeholder="Enter Value" /><br />
+            <input type="text" id="no2" placeholder="Enter Value" />
+            <br />
+            <input type="submit" id="add" name="calc" value=" + " />
+            <input type="submit" id="sub" name="calc" value=" - " />
+            <input type="submit" id="mul" name="calc" value=" * " />
+            <input type="submit" id="div" name="calc" value=" / " />
+        </form>
+        <br /> 
+        <br />
+       
+        <h1>Result Is  : @Model.Res</h1>
+    </div>
+</body>
+</html>

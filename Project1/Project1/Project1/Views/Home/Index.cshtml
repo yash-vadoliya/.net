@@ -1,0 +1,39 @@
+﻿@model Project1.Models.Home
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <h1>Hello</h1>
+        <hr />
+        <nav>
+            <a href="./index">Home</a>
+            <a href="./Contact">Contact</a>
+            <a href="./About">About</a>
+        </nav>
+        <h2>This Is Home Page.</h2>
+        <table border="1">
+            <tr>
+                <td>Id</td>
+                <td>Name</td>
+                <td>No</td>
+            </tr>
+            <tr>
+                <td>@Model.id</td>
+                <td>@Model.name</td>
+                <td>@Model.no</td>
+            </tr>
+        </table>
+        <p>@ViewBag.title</p>
+        <p>@ViewData.name</p>
+    </div>
+</body>
+</html>

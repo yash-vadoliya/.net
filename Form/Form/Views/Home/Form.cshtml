@@ -1,0 +1,48 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Form</title>
+</head>
+<body>
+    @{ 
+        List<SelectListItem> city = new List<SelectListItem>()
+        {
+            new SelectListItem(){Text = "Rajkot", Value="1"},
+            new SelectListItem(){Text = "Junagadh", Value="2", Selected=true},
+            new SelectListItem(){Text = "Surat", Value="3"}
+        };
+     }
+
+    <div>
+        @using (Html.BeginForm("Form", "Home", FormMethod.Post))
+        {   
+            <label>Name :</label>
+            @Html.TextBox("fname", "", new { @class = "from-control" })<br />
+            <label>Lname :</label>
+            @Html.TextBox("lname", "", new { @class = "from-control" })<br />
+            <label>Mobile No :</label>
+            @Html.TextBox("mono", "", new { @class = "from-control" })<br />
+            <label>Address :</label>
+            @Html.TextArea("add", "", new { @class = "from-control" })<br />
+            <label>Male </label>
+            @Html.RadioButton("gen", "Male", new { @class = "from-control" })
+            <label>Female </label>
+            @Html.RadioButton("gen", "Female", new { @class = "from-control" })<br />
+            <label>City :</label>
+            @Html.DropDownList("city", city, new { @class = "from-control" })<br />
+            <input type="submit" value="Submit" />
+        }
+    </div>
+
+    <div>
+        @ViewBag.name
+    </div>
+</body>
+</html>

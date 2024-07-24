@@ -1,0 +1,28 @@
+﻿@model View.Models.Home 
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <h1>View Data: </h1><br />
+            <ul>
+                @foreach (var list in ViewData["li"])
+                {
+                    <li>@list.con</li>
+                }
+            </ul>
+        <hr />
+
+        <h1>Temp Data:</h1><br />
+        <h3></h3>
+    </div>
+</body>
+</html>
