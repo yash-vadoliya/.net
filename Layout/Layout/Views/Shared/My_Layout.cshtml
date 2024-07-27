@@ -1,44 +1,53 @@
-﻿
-@{
-    Layout = null;
+﻿@{
+    Layout = null; // Remove this if this file is used as the layout
+    ViewBag.Title = "My ASP.NET MVC Application"; // Default title
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>My_Layout</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/site.css" rel="stylesheet" /> <!-- Link to custom CSS -->
+    @Styles.Render("~/Content/css") <!-- Render additional CSS if needed -->
+    @Scripts.Render("~/bundles/modernizr") <!-- Render scripts if needed -->
 </head>
 <body>
-    <div>
-        <table border="1">
-            <tr>
-                <td colspan="2" align="center">Header</td>
-            </tr>
-            <tr>
-            @*    <td width="25%">
-                    <a href="#">Home</a>
-                    <a href="#">Contact</a>
-                    <a href="#">About</a>
-                </td>*@
-                <td>
-                    <div class="navbar-collapse collapse">
-                        <ul @*class="nav navbar-nav"*@>
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                        </ul>
-                    </div>
-                </td>
-                <td>@RenderBody()</td>
-            </tr>
-            <tr>
-                <td colspan="2" align="center">Footer</td>
-            </tr>
-        </table>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">My Website</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    @Html.ActionLink("Home", "Index", "Home", new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("About", "About", "Home", new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Contact", "Contact", "Home", new { @class = "nav-link" })
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        @RenderBody()
     </div>
+
+    <!-- Footer -->
+    <footer class="footer bg-light py-3">
+        <div class="container text-center">
+            <span>© 2024 My Website. All rights reserved.</span>
+        </div>
+    </footer>
+
+    
 </body>
 </html>
