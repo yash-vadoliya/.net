@@ -5,8 +5,14 @@
 
 <h2>FileUpload</h2>
 
-@using( Html.BeginForm("FileUpload", "Home",FormMethod.Post,new { enctype="multipart/form-data"}))
-            {
-                <input type="file" name="f" />
-                <input type="Submit" name="Submit" value="Submit"/>
-            }
+@using (Html.BeginForm("FileUpload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="f" accept="image/*" />
+    <input type="Submit" name="Submit" value="Submit" />
+}
+
+@if (ViewBag.ImageUrl != null)
+{
+    <h3>Upload Image</h3>
+    <img src="@ViewBag.ImageUrl" alt="Upload Image" />
+}

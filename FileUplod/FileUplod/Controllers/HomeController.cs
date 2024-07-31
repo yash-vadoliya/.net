@@ -32,9 +32,20 @@ namespace FileUplod.Controllers
         {
             return View();
         }
+
+        private readonly string[] _allowedExtensions = { ".jpg", ".jpeg", ".png", ".gif" };
+        private readonly string[] _allowedMimeTypes = { "image/jpeg", "image/png", "image/gif" };
+
         [HttpPost]
         public ActionResult FileUpload(HttpPostedFileBase f)
         {
+            string fileExtension = Path.GetExtension(f  .FileName).ToLower();
+            if (!_allowedExtensions.Contains(fileExtension))
+            {
+                ViewBag.Message = "Invalid file type. Only image files are allowed.";
+                return View();
+            }
+
             string filename = f.FileName;
             string name = Guid.NewGuid().ToString() + "_" + filename;
 
@@ -49,7 +60,10 @@ namespace FileUplod.Controllers
 
             f.SaveAs(filePath);
 
+            string imageUrl = Url.Content("~/UploadedFiles" + name);
+
             ViewBag.Messege = "Your Page..";
+            ViewBag.ImageUrl = imageUrl;
             return View();
         }
 
